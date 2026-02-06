@@ -1,18 +1,17 @@
 class Solution {
 public:
     vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
-        vector<int>pre(n+1);
+        vector<long long>pre(n+1,0);
         for(auto& q:bookings){
-            int l=q[0]-1;
-            int r=q[1]-1;
+            int l=q[0];
+            int r=q[1];
             int k=q[2];
             pre[l]+=k;
-            if(r<n-1)
+            if(r<n)
             pre[r+1]-=k;
         }
         for(int  i=1;i<=n;++i)
         pre[i]+=pre[i-1];
-        pre.resize(n);
-        return pre;
+        return  vector<int>(pre.begin()+1,pre.end());
     }
 };
