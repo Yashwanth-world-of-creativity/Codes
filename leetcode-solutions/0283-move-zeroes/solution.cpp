@@ -1,3 +1,5 @@
+
+// two pointer method with single pointer moving forward
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
